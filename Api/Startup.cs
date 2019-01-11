@@ -28,7 +28,7 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped<ITriangleRepository, InMemoryTriangleRepository>();
             services.AddScoped<ITriangleService, TriangleService>();
             services.AddSwaggerGen(c =>
@@ -51,7 +51,7 @@ namespace Api
             }
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-
+           
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
