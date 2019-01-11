@@ -5,7 +5,7 @@ namespace Shared.Domain
 {
     public class Triangle
     {
-        public TriangleType Type { get; private set; } 
+        public TriangleType Type { get; private set; }
         public int SideA { get; }
         public int SideB { get; }
         public int SideC { get; }
@@ -20,12 +20,10 @@ namespace Shared.Domain
 
         public bool IsValid()
         {
-            if(GetValidationError()==null)
-                return true;
-            return false;
+            return GetValidationError() == null;
         }
 
-         public string GetValidationError()
+        public string GetValidationError()
         {
             if (!(SideA + SideB > SideC &&
                 SideA + SideC > SideB &&
@@ -94,12 +92,12 @@ namespace Shared.Domain
             {
                 return false;
             }
-            return (SideA == triangle.SideA) && (SideB == triangle.SideB)&& (SideC == triangle.SideC);
+            return (SideA == triangle.SideA) && (SideB == triangle.SideB) && (SideC == triangle.SideC);
         }
 
         public override int GetHashCode()
         {
-            return SideA * 0x00010000 + SideB+SideC;
+            return SideA * 0x00010000 + SideB + SideC;
         }
 
         public static bool operator ==(Triangle lhs, Triangle rhs)
